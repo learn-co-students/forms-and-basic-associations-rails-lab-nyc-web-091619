@@ -1,3 +1,4 @@
+
 class SongsController < ApplicationController
   def index
     @songs = Song.all
@@ -12,7 +13,18 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(song_params)
+    @song = Song.create({
+        title: params[:song][:title], 
+        artist_name: params[:song][:artist_name],
+        genre_id: params[:song][:genre_id],
+        note_contents: params["song_notes"]
+      })
+  
+    # params["song_notes"].each do |note|
+    #   if note != ""
+    #     @song.notes << Note.create(content: note, song_id: @song.id)
+    #   end
+    # end
 
     if @song.save
       redirect_to @song
