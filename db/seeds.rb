@@ -8,6 +8,12 @@
 
 # ID3 tag music genres are surprisingly specific.
 
+artist1 = Artist.create(name: "Sting")
+artist2 = Artist.create(name: "Cher")
+artist3 = Artist.create(name: "Michael Jackson")
+
+song1 = Song.create(title: "hello", artist_id: 1, genre_id: 1)
+
 genres = Hash[[
   "Blues",
   "Classic Rock",
